@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 
 
@@ -27,9 +27,12 @@ const Friends = () => {
             <h1>Friends list</h1>
             {
                 friends.map(friend => <p key={friend._id}
-                >Name: {friend.name} Department: {friend.department} <button
+                >Name: {friend.name}; Department: {friend.department} <button
                     onClick={() => handleDelete(friend._id)}
                     title="Delete">X</button>
+                    <Link to={`/update/${friend._id}`}>
+                        <button>Update</button>
+                    </Link>
                 </p>)
             }
         </div>
